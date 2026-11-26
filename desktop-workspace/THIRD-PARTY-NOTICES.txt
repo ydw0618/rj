@@ -1,0 +1,5 @@
+BlockSuite PageEditor and Markdown adapter
+Copyright the BlockSuite contributors
+License: Mozilla Public License 2.0
+License text: https://www.mozilla.org/MPL/2.0/
+Corresponding source (version 0.19.5): https://github.com/toeverything/blocksuite/tree/v0.19.5

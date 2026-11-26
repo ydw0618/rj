@@ -1,0 +1,79 @@
+.markdown-scroll.affine-page-viewport {
+  height: 100%;
+  overflow: auto;
+  container-type: inline-size;
+  background: var(--surface);
+  padding: 12px 12px 20px;
+}
+
+.editor-host {
+  width: 100%;
+  max-width: 210mm;
+  min-height: min(297mm, 141.4286cqi);
+  margin-inline: auto;
+  background: var(--white);
+  box-shadow: 0 1px 3px #23334914;
+}
+
+.editor-host page-editor {
+  display: block;
+  min-height: inherit;
+  --affine-font-family: var(--interface-font);
+  --affine-font-base: var(--md-font-size, 16px);
+  --affine-line-height: var(--md-line-height, 1.7);
+  --affine-text-primary-color: var(--ink);
+  --affine-background-primary-color: var(--white);
+  --affine-editor-width: 100%;
+  --affine-editor-side-padding: clamp(16px, 4.3cqi, 12mm);
+  --affine-editor-bottom-padding: clamp(26px, 4.6cqi, 14mm);
+}
+
+.editor-host page-editor .affine-page-root-block-container {
+  height: auto;
+  min-height: inherit;
+  padding-top: clamp(26px, 4.6cqi, 14mm);
+}
+
+.editor-host page-editor :is(affine-format-bar-widget, affine-drag-handle-widget, affine-linked-doc-widget) {
+  display: none;
+}
+
+.editor-host page-editor affine-paragraph {
+  overflow-wrap: anywhere;
+}
+
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper {
+  margin-block: 0 var(--md-paragraph-gap, 12px);
+}
+
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper.text {
+  text-indent: var(--md-first-line, 0);
+}
+
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper:is(.h1,.h2,.h3,.h4,.h5,.h6) {
+  margin: .6em 0 .18em;
+  color: #172134;
+  font-weight: 660;
+  line-height: 1.34;
+  scroll-margin-top: 16px;
+}
+
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper.h1 { font-size: 2em }
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper.h2 { font-size: 1.55em }
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper.h3 { font-size: 1.25em }
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper.h4 { font-size: 1.1em }
+.editor-host page-editor affine-paragraph .affine-paragraph-rich-text-wrapper:is(.h5,.h6) { font-size: 1em }
+
+.editor-host page-editor affine-code {
+  display: block;
+  min-width: 0;
+  margin-block: .65em 1em;
+}
+
+.editor-host page-editor affine-database {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: .65em 1em;
+}
+

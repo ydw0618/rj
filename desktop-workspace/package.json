@@ -1,0 +1,71 @@
+{
+  "name": "ydw-desktop-workspace",
+  "version": "0.1.9",
+  "private": true,
+  "description": "Windows desktop workspace for documents, annotations and tasks",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "test": "tsx --test test/*.test.ts",
+    "test:desktop": "npm run build && node test/desktop-smoke.cjs",
+    "start": "electron-vite preview",
+    "package:win": "npm run build && electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.ydw.desktopworkspace",
+    "productName": "工作空间",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "assets/workspace.png",
+      "package.json"
+    ],
+    "extraResources": [
+      "THIRD-PARTY-NOTICES.txt"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/workspace.ico",
+      "artifactName": "Desktop-Workspace-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "docx": "^9.16.0",
+    "fflate": "^0.8.3",
+    "marked": "^18.3.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sanitize-html": "^2.18.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@blocksuite/blocks": "0.19.5",
+    "@blocksuite/presets": "0.19.5",
+    "@blocksuite/store": "0.19.5",
+    "@toeverything/theme": "1.1.23",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/sanitize-html": "^2.16.2",
+    "@vitejs/plugin-react": "^6.3.0",
+    "electron": "44.3.0",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "playwright-core": "^1.65.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  },
+  "overrides": {
+    "@blocksuite/icons": "2.1.75"
+  }
+}
